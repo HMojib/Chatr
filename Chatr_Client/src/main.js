@@ -5,6 +5,14 @@ import App from './App'
 import router from './router'
 import BootstrapVue from 'bootstrap-vue'
 import jQuery from 'jquery'
+import socketio from 'socket.io';
+import VueSocketIO from 'vue-socket.io';
+
+export const SocketInstance = socketio('http://localhost:4113');
+
+Vue.use(VueSocketIO, SocketInstance)
+
+
 global.jQuery = jQuery
 Vue.use(BootstrapVue);
 

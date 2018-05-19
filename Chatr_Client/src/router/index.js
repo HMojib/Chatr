@@ -10,6 +10,11 @@ export default new Router({
       path: '/',
       name: 'Registration',
       component: Registration
+    },
+    {
+      path: '/',
+      name: 'Registration',
+      component: Registration
     }
   ]
 })
