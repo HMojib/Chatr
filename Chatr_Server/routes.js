@@ -20,7 +20,7 @@ module.exports = function (app) {
     authRoutes.post('/login', requireLogin, AuthenticationController.login);
 
     apiRoutes.use('/user', userRoutes);
-    userRoutes.get('/:userId', requireAuth, UserController.viewProfile);
+    //userRoutes.get('/:userId', requireAuth, UserController.viewProfile);
 
     apiRoutes.use('/chat', chatRoutes);
     chatRoutes.get('/', requireAuth, ChatController.getConversations);

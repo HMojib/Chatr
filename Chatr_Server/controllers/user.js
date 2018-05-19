@@ -13,8 +13,7 @@ exports.viewProfile = function (req, res, next) {
             _id: user._id,
             firstName: user.profile.first_name,
             lastName: user.profile.last_name,
-            email: user.email,
-            role: user.role
+            email: user.email
         };
 
         return res.status(200).json({ user: userToReturn });

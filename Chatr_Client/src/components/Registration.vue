@@ -1,7 +1,6 @@
 <template>
   <div class="top">
     <div class="container" >
-
       <div class="row header">
         <div class="col-sm-12">
           <h1>Welcome to <strong>Chatr</strong></h1>
@@ -104,14 +103,12 @@
 </template>
 
 <script>
-  import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
-  import { faEdit } from '@fortawesome/fontawesome-free-solid'
+  import axios from 'axios';
 
   export default {
     name: "Registration",
     data () {
       return {
-        signInErrors:[],
         form: {
           email: '',
           first_name: '',
@@ -127,21 +124,16 @@
     },
     methods: {
       onSignInSubmit (evt) {
+        this.$router.push({name: 'Profile', params: {user: this.form}});
+        axios.post('http://localhost:3000/api/register', this.form).then(response => this.$router.push({name: 'Profile', params: {user: response.user}}));
         console.log("Email: " + this.form.email);
         evt.preventDefault();
       },
       onSubmitLogin (evt) {
+        axios.post('http://localhost:3000/api/login', this.login).then(response => this.$router.push({name: 'Profile', params: {user: response.user}}));
         console.log("Email: " + this.form.email);
         evt.preventDefault();
       }
-    },
-    computed: {
-      icon () {
-        return faEdit
-      }
-    },
-    components: {
-      FontAwesomeIcon
     }
   }
 </script>

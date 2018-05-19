@@ -13,8 +13,7 @@ exports.login = function (req, res, next) {
         _id: req.user._id,
         firstName: req.user.profile.firstName,
         lastName: req.user.profile.lastName,
-        email: req.user.email,
-        role: req.user.role
+        email: req.user.email
     };
     res.status(200).json({
         token: `JWT ${generateToken(userInfo)}`,
@@ -61,8 +60,7 @@ exports.register = function (req, res, next) {
                 _id: user._id,
                 firstName: user.profile.first_name,
                 lastName: user.profile.last_name,
-                email: user.email,
-                role: user.role
+                email: user.email
             };
 
             res.status(201).json({
